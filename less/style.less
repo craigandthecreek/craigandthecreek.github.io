@@ -7,6 +7,8 @@
     --button-hover: darken(hsl(44, 39%, 89%), 10%);
     --primary-background: hsl(101, 12%, 51%);
     --secondary-background: hsl(102, 11%, 34%);
+    --light-on: block;
+    --light-off: none;
 }
 html[data-theme="dark"] {
     --text: #c3b9ac;
@@ -15,15 +17,50 @@ html[data-theme="dark"] {
     --button: #d2ccba;
     --content-bg: #2b3627;
     --background: #181f15;
+    --light-on: none;
+    --light-off: block;
 }
 @text: var(--text); @heading: var(--heading); @subheading: var(--subheading); @button: var(--button);
 @btn-hover: var(--button-hover); @background-1: var(--background); @background-2: var(--content-bg); 
+@light: var(--light-on); @dark: var(--light-off);
 
 @font-face {
     font-family: "Enriqueta";
     src: local("Enriqueta"),
     url(/fonts/Enriqueta-Regular.ttf) format(truetype);
 }
+@font-face {
+    font-family: "Enriqueta";
+    src: local("Enriqueta"),
+    url(/fonts/Enriqueta-Bold.ttf) format(truetype);
+    font-weight: bold;
+}
+@font-face {
+    font-family: "Open Dyslexic";
+    src: local("OpenDyslexic"),
+    url(/fonts/OpenDyslexic-Regular.woff) format(woff);
+}
+@font-face {
+    font-family: "Open Dyslexic";
+    src: local("OpenDyslexic"),
+    url(/fonts/OpenDyslexic-Italic.woff) format(woff);
+    font-style: italic;
+}
+@font-face {
+    font-family: "Open Dyslexic";
+    src: local("OpenDyslexic"),
+    url(/fonts/OpenDyslexic-Bold.woff) format(woff);
+    font-weight: bold;
+}
+@font-face {
+    font-family: "Open Dyslexic";
+    src: local("OpenDyslexic"),
+    url(/fonts/OpenDyslexic-Bold-Italic.woff) format(woff);
+    font-weight: bold;
+    font-style: italic;
+}
+@dyslexic: "Open Dyslexic"; @enriqueta: "Enriqueta";
+
 /* -------------------------------------- THEME TRANSITION --- */
 html.theme-transition,
 html.theme-transition *,
@@ -33,16 +70,19 @@ html.theme-transition *:after {
   transition-delay: 0 !important;
 }
 .light-on {
-    display: var(--light-on);
+    display: @light;
 }
 .light-off {
-    display: var(--light-off); 
+    display: @dark; 
 }
-
 /* ----------------------------------------------- GENERAL --- */
+html {
+    font-size: 16px;
+}
 body {
     background-color: @background-1;
     color: @text;
+    font-family: @enriqueta;
     display: flex;
 }
 header, footer {
