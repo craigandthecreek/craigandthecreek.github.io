@@ -1,0 +1,50 @@
+/* ----------------------------------- VARIABLE DEFINITION --- */
+:root, html[data-theme="light"] {
+    --text: hsl(36, 21%, 82%);
+    --heading: hsl(44, 39%, 89%);
+    --subheading: hsl(36, 22%, 82%);
+    --button: hsl(44, 39%, 89%);
+    --button-hover: darken(hsl(44, 39%, 89%), 10%);
+    --primary-background: hsl(101, 12%, 51%);
+    --secondary-background: hsl(102, 11%, 34%);
+}
+html[data-theme="dark"] {
+    --text: #c3b9ac;
+    --heading: #d2ccba;
+    --subheading: #a19a8f;
+    --button: #d2ccba;
+    --content-bg: #2b3627;
+    --background: #181f15;
+}
+@text: var(--text); @heading: var(--heading); @subheading: var(--subheading); @button: var(--button);
+@btn-hover: var(--button-hover); @background-1: var(--background); @background-2: var(--content-bg); 
+
+@font-face {
+    font-family: "Enriqueta";
+    src: local("Enriqueta"),
+    url(/fonts/Enriqueta-Regular.ttf) format(truetype);
+}
+/* -------------------------------------- THEME TRANSITION --- */
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *:before,
+html.theme-transition *:after {
+  transition: 0s !important;
+  transition-delay: 0 !important;
+}
+.light-on {
+    display: var(--light-on);
+}
+.light-off {
+    display: var(--light-off); 
+}
+
+/* ----------------------------------------------- GENERAL --- */
+body {
+    background-color: @background-1;
+    color: @text;
+    display: flex;
+}
+header, footer {
+    background-color: @background-2;
+}

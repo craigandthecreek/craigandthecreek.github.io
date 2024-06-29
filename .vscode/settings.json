@@ -1,0 +1,8 @@
+{
+  "less.compile": {
+    "main": "style.less",
+    "compress": true,
+    "out": "${workspaceFolder}/css/"
+  },
+  
+}
